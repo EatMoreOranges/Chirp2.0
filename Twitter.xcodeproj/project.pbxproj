@@ -16,6 +16,7 @@
 		D13D13FD23EDD80A009751DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13D13FC23EDD80A009751DF /* LoginViewController.swift */; };
 		D13D13FF23EDDCA1009751DF /* MysteryButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13D13FE23EDDCA1009751DF /* MysteryButtonViewController.swift */; };
 		D13D140123EE278E009751DF /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13D140023EE278E009751DF /* HomeTableViewController.swift */; };
+		D13D140323EF0606009751DF /* TweetCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13D140223EF0606009751DF /* TweetCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D13D13FC23EDD80A009751DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D13D13FE23EDDCA1009751DF /* MysteryButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MysteryButtonViewController.swift; sourceTree = "<group>"; };
 		D13D140023EE278E009751DF /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		D13D140223EF0606009751DF /* TweetCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				D13D13FC23EDD80A009751DF /* LoginViewController.swift */,
 				D13D13FE23EDDCA1009751DF /* MysteryButtonViewController.swift */,
 				D13D140023EE278E009751DF /* HomeTableViewController.swift */,
+				D13D140223EF0606009751DF /* TweetCellTableViewCell.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				D13D13FF23EDDCA1009751DF /* MysteryButtonViewController.swift in Sources */,
 				D13D13FD23EDD80A009751DF /* LoginViewController.swift in Sources */,
 				6EBCF54421E047A500451C03 /* TwitterAPICaller.swift in Sources */,
+				D13D140323EF0606009751DF /* TweetCellTableViewCell.swift in Sources */,
 				6EBCF52621DF07FC00451C03 /* AppDelegate.swift in Sources */,
 				D13D140123EE278E009751DF /* HomeTableViewController.swift in Sources */,
 			);
