@@ -18,6 +18,14 @@ class LoginViewController: UIViewController {
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        //check user default
+        if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
+            self.performSegue(withIdentifier: "loginToHome", sender: self)//its a transition!
+        }
+    }
+    
+    
     
     @IBAction func onLoginButton(_ sender: Any) {
         //do this every time we click the button
@@ -26,7 +34,10 @@ class LoginViewController: UIViewController {
             //do this when the login is successful
             //perform segue aka the transition
             //withIdentifier: "loginToHome": "loginToHome" is the name of the transition we created
-            self.performSegue(withIdentifier: "loginToHome", sender: self)
+            UserDefaults.standard.set(true, forKey: "userLoggedIn")//everytime a user logs in a variable called "userLoggerIn" is created and set to true
+            
+            self.performSegue(withIdentifier: "loginToHome", sender: self)//its a transition!
+            
        
         }, failure: { (Error) in
             print("Could not login!! ")
