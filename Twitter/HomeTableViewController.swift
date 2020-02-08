@@ -11,30 +11,65 @@ import UIKit
 class HomeTableViewController: UITableViewController {
 
 
-  
+    var tweetArray = [NSDictionary]()
+    var numberOfTweet: Int! //notice that there is a ":" instead of an "="
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadTweet()
+        
+       
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    func loadTweet(){
+        let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json" //where you get the tweets from
+        let myParams = ["count": 10] // could also put ["count": 10, "id": "blah", "whatever-else-can-be-found-in-parameters": "oh ok!"]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets: [NSDictionary]) in //name of array givrn = tweets
+            self.tweetArray.removeAll()//clean up the array
+            for tweet in tweets{
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+            
+        }, failure: { (Error) in
+            print("could not retrieve tweets")
+        })
+    }
+    
+    
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         self.dismiss(animated: true, completion: nil)
         //the line bellow is how to log out
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
+    
+    
+    
     //bellow is the code for the cell you created
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCellTableViewCell
         // the above line makes the tableViews we create a type of tweetCellTableViewCell so we can utilize the features of tweetCellTableViewCell in our new tableView
-        cell.userNameLabel.text = "Jesus the Christ"
-        cell.tweetContent.text = "something else"
+        
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        
+        cell.userNameLabel.text = user["name"] as! String//"Jesus the Christ"
+        cell.tweetContent.text = tweetArray[indexPath.row]["text"] as! String
+        
+        //setting up the image
+        let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
+        let data = try? Data(contentsOf: imageUrl!)
+        if let imageData = data {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
+        
         return cell
     }
     
@@ -48,7 +83,7 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return tweetArray.count
     }
 
     /*
