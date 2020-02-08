@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         //check user default
+        //if value is true then perform transition
         if UserDefaults.standard.bool(forKey: "userLoggedIn") == true{
             self.performSegue(withIdentifier: "loginToHome", sender: self)//its a transition!
         }
