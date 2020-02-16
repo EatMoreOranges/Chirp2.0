@@ -80,13 +80,13 @@
 		6EBCF52421DF07FC00451C03 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D13D13FC23EDD80A009751DF /* LoginViewController.swift */,
 				6EBCF54D21E71F9400451C03 /* Launch Screen.storyboard */,
 				6EBCF52921DF07FC00451C03 /* Main.storyboard */,
 				6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */,
 				6EBCF52521DF07FC00451C03 /* AppDelegate.swift */,
 				37D29B8521F90E3400984A88 /* Assets.xcassets */,
 				6EBCF53121DF07FE00451C03 /* Info.plist */,
-				D13D13FC23EDD80A009751DF /* LoginViewController.swift */,
 				D13D13FE23EDDCA1009751DF /* MysteryButtonViewController.swift */,
 				D13D140023EE278E009751DF /* HomeTableViewController.swift */,
 				D13D140223EF0606009751DF /* TweetCellTableViewCell.swift */,

@@ -21,7 +21,10 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
 //        loadTweets()
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
-        tableView.refreshControl = myRefreshControl
+        self.tableView.refreshControl = myRefreshControl
+        //
+       // self.tweetTable.rowHeight = UITableView.automaticDimensions
+    // self.tweetTable.estimatedRowHeight = 150
         
     }
     
@@ -29,6 +32,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadTweets()
+        print("didnt i tell you it will be alright")
     }
     
     
@@ -50,7 +54,6 @@ class HomeTableViewController: UITableViewController {
             print("could not retrieve tweets")
         })
     }
-    
     
     
     
@@ -84,16 +87,12 @@ class HomeTableViewController: UITableViewController {
     
     
     
-    
-    
     @IBAction func onLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
         self.dismiss(animated: true, completion: nil)
         //the line bellow is how to log out
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
-    
-    
     
     
     
@@ -106,21 +105,16 @@ class HomeTableViewController: UITableViewController {
         
         cell.userNameLabel.text = user["name"] as! String//"Jesus the Christ"
         cell.tweetContent.text = tweetArray[indexPath.row]["text"] as! String
-        
-        //setting up the image
+//        cell.timeLabel.text = getRelativeTime(timeString: (tweetArray[indexPath.row]["created at"] as? String)!)
+//        //setting up the image
         let imageUrl = URL(string: (user["profile_image_url_https"] as? String)!)
         let data = try? Data(contentsOf: imageUrl!)
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
-        
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
         return cell
     }
-    
-    
-   
-
-    
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
