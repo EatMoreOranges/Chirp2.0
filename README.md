@@ -24,8 +24,9 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/GHzXmfUk5Y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/hQs5mBWqjg.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+# Twitter - Part I
 
 **Chirp 2.0** is a basic twitter app to read your tweets.
 
